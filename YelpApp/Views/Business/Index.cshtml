@@ -1,0 +1,11 @@
+﻿@model IEnumerable<YelpApp.Models.Business>
+
+<h1>Businesses</h1>
+@Html.ActionLink("Create new business", "Create", "Business")
+
+<ul>
+    @foreach(var business in Model)
+    {
+        <li>@business.Business_Name</li>
+    }
+</ul>

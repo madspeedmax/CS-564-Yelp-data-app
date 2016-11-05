@@ -1,0 +1,8 @@
+﻿@model YelpApp.Models.Business
+
+<h1>Create Business</h1>
+
+<form asp-action="Create" asp-controller="Business" method="post">
+    @Html.EditorForModel()
+    <input type="submit" value="Save Business"/>
+</form>
