@@ -26,8 +26,14 @@ namespace YelpApp.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create(Business Business)
         {
+            Business.Business_ID = Guid.NewGuid().ToString();
             db.Businesses.Add(Business);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Update(Business Business)
+        {
             return RedirectToAction("Index");
         }
     }

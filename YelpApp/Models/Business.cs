@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace YelpApp.Models
 {
     public class Business
     {
         [Key]
-        public string Business_ID { get; set; }
+        public String Business_ID { get; set; }
         public string Business_Name { get; set; }
         public string Business_City { get; set; }
         public string Business_State { get; set; }

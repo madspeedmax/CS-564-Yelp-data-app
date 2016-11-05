@@ -1,8 +1,38 @@
 ﻿@model YelpApp.Models.Business
 
+
+@Html.ActionLink("Back to view businesses", "Index", "Business")
+
 <h1>Create Business</h1>
 
 <form asp-action="Create" asp-controller="Business" method="post">
-    @Html.EditorForModel()
-    <input type="submit" value="Save Business"/>
+    <table>
+        <tr>
+            <td>@Html.Label("Name:")</td>
+            <td>@Html.EditorFor(b => b.Business_Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("State:")</td>
+            <td>@Html.EditorFor(b => b.Business_State)</td>
+        </tr>
+
+        <tr>
+           <td>@Html.Label("City:")</td>
+            <td>@Html.EditorFor(b => b.Business_City)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Full Address:")</td>
+            <td>@Html.EditorFor(b => b.Business_Full_Address)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Open?")</td>
+            <td>@Html.EditorFor(b => b.Business_Open)</td>
+        </tr>
+    </table>
+    <div>
+        <input type="submit" value="Save Business" />
+    </div>
+
 </form>

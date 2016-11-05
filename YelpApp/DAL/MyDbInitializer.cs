@@ -12,7 +12,7 @@ namespace YelpApp.DAL
         protected override void Seed(MyDbContext context)
         {
             // create a business to seed the db
-            context.Businesses.Add(new Business { Business_ID = "1", Business_Name = "Andrew's Business", Business_City = "Madison", Business_State = "WI" });
+            context.Businesses.Add(new Business { Business_Name = "Andrew's Business", Business_City = "Madison", Business_State = "WI" });
             base.Seed(context);
         }
     }
