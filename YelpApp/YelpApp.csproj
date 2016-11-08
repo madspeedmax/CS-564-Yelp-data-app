@@ -167,12 +167,14 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="DAL\MyDbContext.cs" />
     <Compile Include="DAL\MyDbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Business.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,10 +219,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Business\Reviews.cshtml" />
+    <Content Include="Views\Business\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Review\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
     <Folder Include="Views\Update\" />
   </ItemGroup>

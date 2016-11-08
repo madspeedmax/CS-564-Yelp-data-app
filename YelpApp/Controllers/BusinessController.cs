@@ -32,9 +32,26 @@ namespace YelpApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Details(string businessID)
+        {
+            var model = db.Businesses.Find(businessID);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
+
         public ActionResult Update(Business Business)
         {
             return RedirectToAction("Index");
+        }
+
+        [ChildActionOnly]
+        public ActionResult Reviews(string businessID)
+        {
+            var model = db.Reviews.Where(e => e.Business_ID == businessID).ToList();
+            return PartialView(model);
         }
     }
 }

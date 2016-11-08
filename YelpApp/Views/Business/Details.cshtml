@@ -1,0 +1,61 @@
+﻿@model YelpApp.Models.Business
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Business</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_Full_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_Full_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_Open)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_Open)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.Action("Reviews", new { businessID = Model.Business_ID })
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Business_ID }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -6,6 +6,6 @@
 <ul>
     @foreach(var business in Model)
     {
-        <li>@business.Business_Name</li>
+        <li>@business.Business_Name (@Html.ActionLink("details", "Details", "Business", new { businessID = business.Business_ID }, null))</li>
     }
 </ul>
