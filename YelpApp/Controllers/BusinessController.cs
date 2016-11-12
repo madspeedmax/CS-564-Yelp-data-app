@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,12 +12,6 @@ namespace YelpApp.Controllers
 
     public class BusinessController : BaseController
     {
-        public ActionResult Index()
-        {
-            var model = db.Businesses.ToList();
-            return View(model);
-        }
-
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Create()
         {

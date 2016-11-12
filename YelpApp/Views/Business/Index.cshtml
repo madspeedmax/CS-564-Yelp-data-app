@@ -1,11 +1,11 @@
-﻿@model IEnumerable<YelpApp.Models.Business>
+﻿
+@{
+    ViewBag.Title = "Index";
+}
 
-<h1>Businesses</h1>
-@Html.ActionLink("Create new business", "Create", "Business")
+<div id="search-form">
+    @Html.Action("Search", "Business");  // GET action in controller that displays form
+</div>
+<div id="search-results">
+</div>
 
-<ul>
-    @foreach(var business in Model)
-    {
-        <li>@business.Business_Name (@Html.ActionLink("details", "Details", "Business", new { businessID = business.Business_ID }, null))</li>
-    }
-</ul>

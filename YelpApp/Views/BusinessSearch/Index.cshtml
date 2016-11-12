@@ -1,0 +1,81 @@
+﻿@model YelpApp.Models.BusinessSearch
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "BusinessSearch", FormMethod.Get))
+{
+    @Html.ValidationSummary(false)
+    <div style="border-bottom:1px solid #bbb"><h1>Search Businesses</h1></div>
+    <table style="border:0px; width:500px;">
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Category)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Category)
+                    @Html.ValidationMessageFor(model => model.Category)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.City)
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.State)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.State)
+                    @Html.ValidationMessageFor(model => model.State)
+                </div>
+            </td>
+            <td style="vertical-align:bottom;">
+                <input name="SearchButton" type="submit" value="Search" />
+            </td>
+        </tr>
+    </table>
+
+    if (Model.SearchResults != null && Model.SearchResults.Count > 0)
+    {
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Full Address</th>
+                <th>Open?</th>
+            </tr>
+            @foreach (var business in Model.SearchResults)
+            {
+                <tr>
+                    <td>@business.Business_Name</td>
+                    <td>@business.Business_City</td>
+                    <td>@business.Business_State</td>
+                    <td>@business.Business_Full_Address</td>
+                    <td>@business.Business_Open</td>
+                </tr>
+            }
+        </table>
+        @Html.PagedListPager(Model.SearchResults,
+               page => Url.Action("Index", new RouteValueDictionary()
+               {
+               { "Page", page },
+               { "BusinessCategory", Model.Category },
+               { "BusinessCity", Model.City }
+               }),
+               PagedListRenderOptions.PageNumbersOnly)
+    }
+}
+
