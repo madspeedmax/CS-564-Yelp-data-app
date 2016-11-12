@@ -1,5 +1,7 @@
 ﻿@model YelpApp.Models.BusinessSearch
 @using PagedList.Mvc;
+@using YelpApp.Util;
+@using YelpApp.static_content;
 
 @{
     ViewBag.Title = "Index";
@@ -9,7 +11,7 @@
 {
     @Html.ValidationSummary(false)
     <div style="border-bottom:1px solid #bbb"><h1>Search Businesses</h1></div>
-    <table style="border:0px; width:500px;">
+    <table class="table">
         <tr>
             <td>
                 <div class="editor-label">
@@ -17,7 +19,7 @@
                 </div>
 
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Category)
+                    @Html.TextBoxFor(model => model.Category, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Category)
                 </div>
             </td>
@@ -27,7 +29,7 @@
                 </div>
 
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.City)
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.City)
                 </div>
             </td>
@@ -37,34 +39,39 @@
                 </div>
 
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.State)
+                    @Html.DropDownListFor(model => model.State, States.StateList, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.State)
                 </div>
             </td>
             <td style="vertical-align:bottom;">
-                <input name="SearchButton" type="submit" value="Search" />
+                <input name="SearchButton" type="submit" value="Search" class="btn btn-primary" />
             </td>
         </tr>
     </table>
 
     if (Model.SearchResults != null && Model.SearchResults.Count > 0)
     {
-        <table class="table" style="width:500px;">
+        <div></div>
+        <table class="table">
             <tr>
                 <th>Name</th>
+                <th>Category</th>
                 <th>City</th>
                 <th>State</th>
                 <th>Full Address</th>
                 <th>Open?</th>
+                <th>Details</th>
             </tr>
             @foreach (var business in Model.SearchResults)
             {
                 <tr>
                     <td>@business.Business_Name</td>
+                    <td>@business.Category</td>
                     <td>@business.Business_City</td>
                     <td>@business.Business_State</td>
                     <td>@business.Business_Full_Address</td>
-                    <td>@business.Business_Open</td>
+                    <td>@business.Business_Open.ToYesNoString()</td>
+                    <td>@Html.ActionLink("Details", "Details", "Business", new { businessID = business.Business_ID }, null)</td>
                 </tr>
             }
         </table>

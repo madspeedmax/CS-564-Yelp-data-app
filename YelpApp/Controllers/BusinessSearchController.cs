@@ -36,7 +36,8 @@ namespace YelpApp.Controllers
                                    Category = c.Category,
                                    Business_City = b.Business_City,
                                    Business_State = b.Business_State,
-                                   Business_Full_Address = b.Business_Full_Address
+                                   Business_Full_Address = b.Business_Full_Address,
+                                   Business_Open = b.Business_Open
                                })
                                 .Where(b => (b.Business_City == model.City || model.City == null)
                                 && (b.Business_State == model.State || model.State == null)

@@ -188,6 +188,8 @@
     <Compile Include="Models\Business_Category.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="static_content\States.cs" />
+    <Compile Include="Util\BooleanExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
