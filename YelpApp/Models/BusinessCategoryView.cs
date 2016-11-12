@@ -6,7 +6,7 @@ using System.Web;
 
 namespace YelpApp.Models
 {
-    public class BusinessCategoryView
+    public class BusinessCategoryView 
     {
         [DisplayName("Business ID")]
         public string Business_ID { get; set; }
@@ -28,5 +28,18 @@ namespace YelpApp.Models
 
         [DisplayName("Category")]
         public string Category { get; set; }
+    }
+
+    public class BusinessCategoryViewComparer : IEqualityComparer<BusinessCategoryView>
+    {
+        public bool Equals(BusinessCategoryView bcv1, BusinessCategoryView bcv2)
+        {
+            return bcv1.Business_ID == bcv2.Business_ID;
+        }
+
+        public int GetHashCode(BusinessCategoryView bcv)
+        {
+            return bcv.Business_ID.GetHashCode();
+        }
     }
 }

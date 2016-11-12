@@ -10,6 +10,7 @@ namespace YelpApp.static_content
     {
         public static List<SelectListItem> StateList = new List<SelectListItem>()
         {
+            new SelectListItem() {Text="", Value=""},
             new SelectListItem() {Text="Alabama", Value="AL"},
             new SelectListItem() { Text="Alaska", Value="AK"},
             new SelectListItem() { Text="Arizona", Value="AZ"},
