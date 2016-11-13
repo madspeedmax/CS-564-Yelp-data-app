@@ -233,17 +233,16 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Business\Create.cshtml" />
-    <Content Include="Views\Business\SearchResults.cshtml" />
     <Content Include="Views\Business\Reviews.cshtml" />
     <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
-    <Content Include="Views\Business\Search.cshtml" />
     <Content Include="Views\BusinessSearch\Index.cshtml" />
+    <Content Include="Views\Review\Create.cshtml" />
+    <Content Include="Views\Review\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Review\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
     <Folder Include="Views\Update\" />
   </ItemGroup>

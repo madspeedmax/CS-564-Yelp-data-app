@@ -7,7 +7,7 @@
 <h2>Reviews</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", "Review")
+    @Html.ActionLink("Create New", "Create", "Review", new { businessID = Model.FirstOrDefault().Business_ID }, null)
 </p>
 <table class="table">
     <tr>
@@ -20,7 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
-        <th></th>
+        <th>
+            Edit
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,9 +37,7 @@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Review_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Review_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Review_ID })
+            @Html.ActionLink("Edit", "Edit", "Review", new { id=item.Review_ID }, new { @class = "btn btn-primary btn-sm" })
         </td>
     </tr>
 }
