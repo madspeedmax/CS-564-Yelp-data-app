@@ -1,0 +1,72 @@
+﻿@model YelpApp.Models.BusinessRank
+@using YelpApp.Util;
+@using YelpApp.static_content;
+
+@{
+    ViewBag.Title = "Ranking";
+}
+
+<h2>Ranking</h2>
+
+@using (Html.BeginForm("Index", "BusinessRank", FormMethod.Get))
+{
+    @Html.ValidationSummary(false)
+    <div style="border-bottom:1px solid #bbb"><h1>Rank Cities by Business Category</h1></div>
+    <table class="table">
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Category)
+                </div>
+
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Category, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Category)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)
+                </div>
+
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.State)
+                </div>
+
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.State, States.StateList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.State)
+                </div>
+            </td>
+            <td style="vertical-align:bottom;">
+                <input name="SearchButton" type="submit" value="Search" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+
+    if (Model.RankResults != null && Model.RankResults.Count() > 0)
+    {
+        <div></div>
+        <table class="table">
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Score</th>
+            </tr>
+            @foreach (var result in Model.RankResults)
+            {
+                <tr>
+                    <td>@result.City</td>
+                    <td>@result.State</td>
+                    <td>@result.Score</td>
+                </tr>
+            }
+        </table>
+    }
+}

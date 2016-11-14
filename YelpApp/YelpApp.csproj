@@ -174,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\BusinessRankController.cs" />
     <Compile Include="Controllers\BusinessSearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
@@ -184,8 +185,10 @@
     </Compile>
     <Compile Include="Models\Business.cs" />
     <Compile Include="Models\BusinessCategoryView.cs" />
+    <Compile Include="Models\BusinessRankResult.cs" />
     <Compile Include="Models\BusinessSearch.cs" />
     <Compile Include="Models\Business_Category.cs" />
+    <Compile Include="Models\BusinessRank.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="static_content\States.cs" />
@@ -239,6 +242,7 @@
     <Content Include="Views\BusinessSearch\Index.cshtml" />
     <Content Include="Views\Review\Create.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
+    <Content Include="Views\BusinessRank\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -50,6 +50,19 @@
             @Html.DisplayFor(model => model.Business_Open)
         </dd>
 
+        <dt>
+            <label>Categories</label>
+        </dt>
+
+        <dd>
+            <ul class="list-inline">
+                @foreach (var cat in (IEnumerable<YelpApp.Models.Business_Category>)ViewData["Categories"])
+                {
+                    <li><span class="label label-default">@cat.Category</span="label></li>
+                }
+            </ul>
+        </dd>
+
     </dl>
 </div>
 <div>

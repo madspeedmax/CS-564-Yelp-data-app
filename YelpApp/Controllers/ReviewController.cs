@@ -24,7 +24,8 @@ namespace YelpApp.Controllers
             {
                 return HttpNotFound();
             }
-            var model = new Review();
+            //var model = new Review();
+            ViewData["BusinessName"] = db.Businesses.Find(businessID).Business_Name;
             return View();
         }
 

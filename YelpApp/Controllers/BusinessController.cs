@@ -30,10 +30,13 @@ namespace YelpApp.Controllers
         public ActionResult Details(string businessID)
         {
             var model = db.Businesses.Find(businessID);
+            
             if (model == null)
             {
                 return HttpNotFound();
             }
+
+            ViewData["Categories"] = db.Categories.Where(c => c.Business_ID == businessID).ToList();
             return View(model);
         }
 
@@ -45,6 +48,7 @@ namespace YelpApp.Controllers
         [ChildActionOnly]
         public ActionResult Reviews(string businessID)
         {
+            ViewData["BusinessID"] = businessID;
             var model = db.Reviews.Where(e => e.Business_ID == businessID).ToList();
             return PartialView(model);
         }

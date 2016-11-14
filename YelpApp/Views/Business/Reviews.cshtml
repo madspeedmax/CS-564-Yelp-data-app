@@ -7,7 +7,7 @@
 <h2>Reviews</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", "Review", new { businessID = Model.FirstOrDefault().Business_ID }, null)
+    @Html.ActionLink("Create New", "Create", "Review", new { businessID = ViewData["BusinessID"] }, null)
 </p>
 <table class="table">
     <tr>
