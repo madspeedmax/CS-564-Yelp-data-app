@@ -19,17 +19,7 @@ namespace YelpApp.Controllers
             {
                 model.RankResults = new List<BusinessRankResult>();
 
-                //var categoryParameter = new MySqlParameter("@cat", model.Category);
-                //categoryParameter.Direction = System.Data.ParameterDirection.Input;
-                //var cityParameter = new MySqlParameter("@city", model.City);
-                //cityParameter.Direction = System.Data.ParameterDirection.Input;
-                //var stateParameter = new MySqlParameter("@state", model.State);
-                //stateParameter.Direction = System.Data.ParameterDirection.Input;
-                //var scoreParameter = new MySqlParameter("@score", 0);
-                //scoreParameter.Direction = System.Data.ParameterDirection.Output;
-                //var sql = @"call citycategoryscore(@cat, @city, @state, @score)";
-                //db.Database.ExecuteSqlCommand(sql, categoryParameter, cityParameter, stateParameter, scoreParameter);
-
+                #region city 1
                 MySqlCommand cmd = new MySqlCommand();
                 MySqlConnection conn = new MySqlConnection(db.Database.Connection.ConnectionString);
                 conn.Open();
@@ -50,10 +40,10 @@ namespace YelpApp.Controllers
 
                 cmd.ExecuteNonQuery();
 
-                double calc = 0;
+                double calc1 = 0;
                 if (cmd.Parameters["@score"].Value != System.DBNull.Value)
                 {
-                    calc = Math.Round((double)cmd.Parameters["@score"].Value, 2);
+                    calc1 = Math.Round((double)cmd.Parameters["@score"].Value, 2);
 
                 }
 
@@ -62,9 +52,44 @@ namespace YelpApp.Controllers
                     Category = model.Category,
                     City = model.City,
                     State = model.State,
-                    Score = calc
+                    Score = calc1
             });
+                #endregion
 
+                #region city 2
+                MySqlCommand cmd2 = new MySqlCommand();
+                cmd2.Connection = conn;
+                cmd2.CommandText = "citycategoryscore";
+                cmd2.CommandType = CommandType.StoredProcedure;
+                cmd2.Parameters.AddWithValue("@cat", model.Category);
+                cmd2.Parameters["@cat"].Direction = ParameterDirection.Input;
+
+                cmd2.Parameters.AddWithValue("@city", model.City2);
+                cmd2.Parameters["@city"].Direction = ParameterDirection.Input;
+
+                cmd2.Parameters.AddWithValue("@state", model.State2);
+                cmd2.Parameters["@state"].Direction = ParameterDirection.Input;
+
+                cmd2.Parameters.Add("@score", MySqlDbType.Double);
+                cmd2.Parameters["@score"].Direction = ParameterDirection.Output;
+
+                cmd2.ExecuteNonQuery();
+
+                double calc2 = 0;
+                if (cmd2.Parameters["@score"].Value != System.DBNull.Value)
+                {
+                    calc2 = Math.Round((double)cmd2.Parameters["@score"].Value, 2);
+
+                }
+
+                model.RankResults.Add(new BusinessRankResult()
+                {
+                    Category = model.Category,
+                    City = model.City2,
+                    State = model.State2,
+                    Score = calc2
+                });
+                #endregion
             }
             return View(model);
         }
