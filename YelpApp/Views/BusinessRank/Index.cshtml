@@ -2,13 +2,25 @@
 @using YelpApp.Util;
 @using YelpApp.static_content;
 
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myform").submit(function () {
+                $("#myLoadingElement").show();
+                $("#resultstable").hide();
+            });
+        });
+    </script>
+}
+
 @{
     ViewBag.Title = "Ranking";
 }
 
 <h2>Ranking</h2>
 
-@using (Html.BeginForm("Index", "BusinessRank", FormMethod.Get))
+@using (Html.BeginForm("Index", "BusinessRank", FormMethod.Get, new { id = "myform" }))
 {
     @Html.ValidationSummary(false)
     <div style="border-bottom:1px solid #bbb"><h1>Rank Cities by Business Category</h1></div>
@@ -89,11 +101,13 @@
             </td>
         </tr>
     </table>
-
+    <div id="myLoadingElement" align="center" style="display: none;">
+        <img src="~/Content/load.gif" alt="Loading..." />
+    </div>
     if (Model.RankResults != null && Model.RankResults.Count() > 0)
     {
         <div></div>
-        <table class="table">
+        <table class="table" id="resultstable">
             <tr>
                 <th>City</th>
                 <th>State</th>
