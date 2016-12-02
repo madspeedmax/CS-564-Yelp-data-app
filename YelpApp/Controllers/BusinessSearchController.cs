@@ -15,8 +15,13 @@ namespace YelpApp.Controllers
 
         public ActionResult Index(BusinessSearch model)
         {
+            var CatList = db.Categories.Select(c => c.Category).Distinct().ToArray();
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            ViewData["CatList"] = serializer.Serialize(CatList);
+
             if (!string.IsNullOrEmpty(model.SearchButton) || model.Page.HasValue)
             {
+
                 if (model.Category == null)
                 {
                     model.Category = this.Request.QueryString["BusinessCategory"];

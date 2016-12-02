@@ -15,6 +15,10 @@ namespace YelpApp.Controllers
         // GET: BusinessRank
         public ActionResult Index(BusinessRank model)
         {
+            var CatList = db.Categories.Select(c => c.Category).Distinct().ToArray();
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            ViewData["CatList"] = serializer.Serialize(CatList);
+
             if (!string.IsNullOrEmpty(model.SearchButton))
             {
                 model.RankResults = new List<BusinessRankResult>();

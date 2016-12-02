@@ -7,6 +7,22 @@
     ViewBag.Title = "Index";
 }
 
+@section Scripts
+{
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var categories = @Html.Raw(ViewData["CatList"]);
+            $("#Category").autocomplete({
+                source: categories
+            });
+        });
+    </script>
+}
+
+
 @using (Html.BeginForm("Index", "BusinessSearch", FormMethod.Get))
 {
     @Html.ValidationSummary(false)
@@ -71,9 +87,17 @@
                     <td>@business.Business_State</td>
                     <td>@business.Business_Full_Address</td>
                     <td>@business.Business_Open.ToYesNoString()</td>
-                    <td>@Html.ActionLink("Details", "Details", "Business", new { businessID = business.Business_ID, Page = Model.Page,
-                       BusinessCategory = Model.Category, BusinessCity = Model.City, BusinessState = Model.State }, null)</td>
-                </tr>
+                    <td>
+                        @Html.ActionLink("Details", "Details", "Business", new
+                   {
+                       businessID = business.Business_ID,
+                       Page = Model.Page,
+                       BusinessCategory = Model.Category,
+                       BusinessCity = Model.City,
+                       BusinessState = Model.State
+                   }, null)
+                </td>
+            </tr>
             }
         </table>
         @Html.PagedListPager(Model.SearchResults,
