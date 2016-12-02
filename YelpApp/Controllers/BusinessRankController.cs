@@ -26,7 +26,7 @@ namespace YelpApp.Controllers
                 #region city 1
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.CommandTimeout = 600;
-                MySqlConnection conn = new MySqlConnection(db.Database.Connection.ConnectionString);
+                MySqlConnection conn = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["YelpConnection"].ConnectionString);
                 conn.Open();
                 cmd.Connection = conn;
                 cmd.CommandText = "citycategoryscore";
