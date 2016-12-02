@@ -4,7 +4,28 @@
     ViewBag.Title = "Reviews";
 }
 
-<h2>Reviews</h2>
+<h2>Reviews (Average Stars: @if ((double) ViewData["AvgStars"] > 0)
+{
+    if ((double) ViewData["AvgStars"] < 3)
+    {
+        <span class="label label-danger">@ViewData["AvgStars"]</span>
+    }
+
+    else if ((double) ViewData["AvgStars"] < 4)
+    {
+        <<span class="label label-warning">@ViewData["AvgStars"]</span>
+    }
+
+    else
+    {
+        <span class="label label-success">@ViewData["AvgStars"]</span>
+    }
+
+}
+else
+{
+    <span class="label label-default">No data</span>
+})</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create", "Review", new { businessID = ViewData["BusinessID"] }, null)
