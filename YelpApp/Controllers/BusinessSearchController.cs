@@ -11,12 +11,24 @@ namespace YelpApp.Controllers
 {
     public class BusinessSearchController : BaseController
     {
-        const int RecordsPerPage = 5;
+        const int RecordsPerPage = 12;
 
         public ActionResult Index(BusinessSearch model)
         {
             if (!string.IsNullOrEmpty(model.SearchButton) || model.Page.HasValue)
             {
+                if (model.Category == null)
+                {
+                    model.Category = this.Request.QueryString["BusinessCategory"];
+                }
+                if (model.City == null)
+                {
+                    model.City = this.Request.QueryString["BusinessCity"];
+                }
+                if (model.State == null)
+                {
+                    model.State = this.Request.QueryString["BusinessState"];
+                }
 
                 var results = (from b in db.Businesses
                                join c in db.Categories

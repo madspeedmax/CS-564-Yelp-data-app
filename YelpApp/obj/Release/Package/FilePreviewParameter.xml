@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="hosokawa13-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Andrew\\documents\\visual\ studio\ 2015\\Projects\\YelpApp\\YelpApp\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Andrew\\documents\\visual\ studio\ 2015\\Projects\\YelpApp\\YelpApp\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="YelpConnection-Web.config Connection String" description="" value="&quot;Server=MYSQL5012.SmarterASP.NET;Database=db_a14550_yelp;Uid=a14550_yelp;Pwd=cs564yelp&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andrew\\documents\\visual\ studio\ 2015\\Projects\\YelpApp\\YelpApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='YelpConnection']/@connectionString" />
+  </parameter>
+</parameters>

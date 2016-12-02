@@ -5,6 +5,7 @@
 <div class="jumbotron">
     <h1>Restaurant Locator</h1>
     <p class="lead">Restaurant Locator allows you to browse Yelp rated businesses and find the cities that have the highest rated business categories.</p>
+    <p>@Html.ActionLink(HttpUtility.HtmlDecode("Create Business &raquo;"), "Create", "Business", null, new { @class = "btn btn-primary btn-lg" })</p>
     <p>@Html.ActionLink(HttpUtility.HtmlDecode("Browse Businesses &raquo;"), "Index", "BusinessSearch", null, new { @class = "btn btn-primary btn-lg" })</p>
     <p>@Html.ActionLink(HttpUtility.HtmlDecode("Location Ranker &raquo;"), "Index", "BusinessRank", null, new { @class = "btn btn-primary btn-lg" })</p>
 </div>

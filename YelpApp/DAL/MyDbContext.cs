@@ -18,6 +18,8 @@ namespace YelpApp.DAL
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Business_Category>  Categories { get; set; }
+        public DbSet<Business_Attribute> Attributes { get; set; }
+        public DbSet<Business_Checkin> Checkins { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

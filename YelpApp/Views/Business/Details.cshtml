@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Business</h4>
+    <h3>Business Detail</h3>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -58,17 +57,52 @@
             <ul class="list-inline">
                 @foreach (var cat in (IEnumerable<YelpApp.Models.Business_Category>)ViewData["Categories"])
                 {
-                    <li><span class="label label-default">@cat.Category</span="label></li>
+                    <li><span class="label label-info">@cat.Category</span="label></li>
+                }
+            </ul>
+        </dd>
+
+        <dt>
+            <label>Attributes</label>
+        </dt>
+
+        <dd>
+            <ul class="list-inline">
+                @foreach (var att in (IEnumerable<YelpApp.Models.Business_Attribute>)ViewData["Attributes"])
+                {
+                    <li><span class="label label-default">@att.Attribute | @att.Value</span></li>
+                }
+            </ul>
+        </dd>
+
+        <dt>
+            <label>Check-ins</label>
+        </dt>
+
+        <dd>
+            <ul class="list-inline">
+                @foreach (var chk in (IEnumerable<YelpApp.Models.Business_Checkin>)ViewData["Checkins"])
+                {
+                    <li><span class="label label-default">Sunday: @chk.Sunday</span></li>
+                    <li><span class="label label-default">Monday: @chk.Monday</span></li>
+                    <li><span class="label label-default">Tuesday: @chk.Tuesday</span></li>
+                    <li><span class="label label-default">Wednesday: @chk.Wednesday</span></li>
+                    <li><span class="label label-default">Thursday: @chk.Thursday</span></li>
+                    <li><span class="label label-default">Friday: @chk.Friday</span></li>
+                    <li><span class="label label-default">Saturday: @chk.Saturday</span></li>
                 }
             </ul>
         </dd>
 
     </dl>
 </div>
+<div align="center">
+    @Html.ActionLink("Edit Details", "Edit", "Business", new { id = Model.Business_ID }, new { @class = "btn btn-primary btn-md" })
+</div>
 <div>
     @Html.Action("Reviews", new { businessID = Model.Business_ID })
 </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Business_ID }) |*@
-    @Html.ActionLink("Back to searching", "Index", "BusinessSearch")
+    @Html.ActionLink("Back to searching", "Index", "BusinessSearch", new { Category = Request.QueryString["BusinessCategory"],
+        City = Request.QueryString["BusinessCity"], State = Request.QueryString["BusinessState"] }, null)
 </p>

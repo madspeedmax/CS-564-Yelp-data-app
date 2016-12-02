@@ -1,16 +1,4 @@
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\ApplicationInsights.config
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\csc.exe
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\Microsoft.CodeAnalysis.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\Microsoft.CSharp.Core.targets
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\System.Collections.Immutable.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\System.Reflection.Metadata.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\vbc.exe
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\VBCSCompiler.exe
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\roslyn\VBCSCompiler.exe.config
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\YelpApp.dll.config
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\YelpApp.dll
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\YelpApp.pdb
@@ -24,7 +12,6 @@ c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Micros
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.AI.Web.dll
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.AI.WindowsServer.dll
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.ApplicationInsights.dll
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.Web.Infrastructure.dll
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\MySql.Data.dll
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\MySql.Data.Entity.EF6.dll
@@ -44,7 +31,6 @@ c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Micros
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.AI.Web.xml
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.AI.WindowsServer.xml
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.ApplicationInsights.xml
-c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\System.Web.Helpers.xml
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\System.Web.Mvc.xml
 c:\users\andrew\documents\visual studio 2015\Projects\YelpApp\YelpApp\bin\System.Web.Optimization.xml

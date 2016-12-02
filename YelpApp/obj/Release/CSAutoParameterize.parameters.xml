@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="YelpConnection-Web.config Connection String" description="YelpConnection Connection String used in web.config by the application to access the database." defaultValue="server=localhost;UserId=root;Password=andrewdb;database=yelp;CharSet=utf8;Persist Security Info=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andrew\\documents\\visual\ studio\ 2015\\Projects\\YelpApp\\YelpApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='YelpConnection']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,147 @@
+﻿@model YelpApp.Models.BusinessRank
+@using YelpApp.Util;
+@using YelpApp.static_content;
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myform").submit(function () {
+                $("#myLoadingElement").show();
+                $("#resultstable").hide();
+            });
+        });
+    </script>
+}
+
+@{
+    ViewBag.Title = "Ranking";
+}
+
+<h2>Ranking</h2>
+
+@using (Html.BeginForm("Index", "BusinessRank", FormMethod.Get, new { id = "myform" }))
+{
+    @Html.ValidationSummary(false)
+    <div style="border-bottom:1px solid #bbb"><h1>Rank Cities by Business Category</h1></div>
+    <table class="table">
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Category)
+                </div>
+
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Category, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Category)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)
+                </div>
+
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.State)
+                </div>
+
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.State, States.StateList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.State)
+                </div>
+            </td>
+            <td style="vertical-align:bottom;">
+                <input name="SearchButton" type="submit" value="Search" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.City2, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.City2)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.State2, States.StateList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.State2)
+                </div>
+            </td>
+            <td style="vertical-align:bottom;">
+                <div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div></div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.City3, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.City3)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.State3, States.StateList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.State3)
+                </div>
+            </td>
+            <td style="vertical-align:bottom;">
+                <div></div>
+            </td>
+        </tr>
+    </table>
+    <div id="myLoadingElement" align="center" style="display: none;">
+        <img src="~/Content/load.gif" alt="Loading..." />
+    </div>
+    if (Model.RankResults != null && Model.RankResults.Count() > 0)
+    {
+        <div></div>
+        <table class="table" id="resultstable">
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Score</th>
+            </tr>
+            @foreach (var result in Model.RankResults)
+            {
+                <tr>
+                    <td>@result.City</td>
+                    <td>@result.State</td>
+                    @if (result.Score > 0)
+                    {
+                        if (result.Score < 3)
+                        {
+                            <td><span class="label label-danger">@result.Score</span></td>
+                        }
+
+                        else if (result.Score < 4)
+                        {
+                            <td><span class="label label-warning">@result.Score</span></td>
+                        }
+
+                        else
+                        {
+                            <td><span class="label label-success">@result.Score</span></td>
+                        }
+
+                    }
+                    else
+                    {
+                        <td><span class="label label-default">No data</span></td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+}
