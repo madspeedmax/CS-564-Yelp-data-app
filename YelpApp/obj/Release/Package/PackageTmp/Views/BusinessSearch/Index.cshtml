@@ -15,8 +15,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var categories = @Html.Raw(ViewData["CatList"]);
+            var cities = @Html.Raw(ViewData["CityList"]);
             $("#Category").autocomplete({
                 source: categories
+            });
+            $("#City").autocomplete({
+                source: cities
             });
         });
     </script>

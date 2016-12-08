@@ -6,7 +6,7 @@
 
 <div>
     <h3>Business Detail</h3>
-    
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -57,7 +57,7 @@
             <ul class="list-inline">
                 @foreach (var cat in (IEnumerable<YelpApp.Models.Business_Category>)ViewData["Categories"])
                 {
-                    <li><span class="label label-info">@cat.Category</span="label></li>
+                    <li><span class="label label-info">@cat.Category</span></li>
                 }
             </ul>
         </dd>
@@ -102,7 +102,16 @@
 <div>
     @Html.Action("Reviews", new { businessID = Model.Business_ID })
 </div>
-<p>
-    @Html.ActionLink("Back to searching", "Index", "BusinessSearch", new { Category = Request.QueryString["BusinessCategory"],
-        City = Request.QueryString["BusinessCity"], State = Request.QueryString["BusinessState"] }, null)
-</p>
+@if (!string.IsNullOrWhiteSpace(Request.QueryString["BusinessState"]) && !string.IsNullOrWhiteSpace(Request.QueryString["BusinessCity"]) && !string.IsNullOrWhiteSpace(Request.QueryString["BusinessCategory"]))
+{
+    <p>
+        @Html.ActionLink("Back to searching", "Index", "BusinessSearch", new
+   {
+       Category = Request.QueryString["BusinessCategory"],
+       City = Request.QueryString["BusinessCity"],
+       State = Request.QueryString["BusinessState"],
+       SearchButton = "Search"
+   }, null)
+    </p>
+}
+
