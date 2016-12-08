@@ -17,6 +17,9 @@ namespace YelpApp.Controllers
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Create()
         {
+            var CityList = db.Businesses.Select(c => c.Business_City).Distinct().ToArray();
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            ViewData["CityList"] = serializer.Serialize(CityList);
             return View();
         }
 
@@ -78,6 +81,9 @@ namespace YelpApp.Controllers
             {
                 return HttpNotFound();
             }
+            var CityList = db.Businesses.Select(c => c.Business_City).Distinct().ToArray();
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            ViewData["CityList"] = serializer.Serialize(CityList);
             return View(model);
         }
 

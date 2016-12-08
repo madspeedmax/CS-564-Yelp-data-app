@@ -19,6 +19,9 @@ namespace YelpApp.Controllers
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             ViewData["CatList"] = serializer.Serialize(CatList);
 
+            var CityList = db.Businesses.Select(c => c.Business_City).Distinct().ToArray();
+            ViewData["CityList"] = serializer.Serialize(CityList);
+
             if (!string.IsNullOrEmpty(model.SearchButton) || model.Page.HasValue)
             {
 

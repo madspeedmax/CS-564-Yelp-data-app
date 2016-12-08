@@ -17,6 +17,9 @@ namespace YelpApp.Models
         [DisplayName("State")]
         public string State { get; set; }
 
+        [DisplayName("Number of Reviews")]
+        public int ReviewCount { get; set; }
+
         [DisplayName("Score")]
         public double Score { get; set; }
     }

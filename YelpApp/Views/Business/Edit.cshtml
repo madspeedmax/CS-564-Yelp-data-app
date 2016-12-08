@@ -5,6 +5,21 @@
     ViewBag.Title = "Edit";
 }
 
+@section Scripts
+{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var cities = @Html.Raw(ViewData["CityList"]);
+            $("#Business_City").autocomplete({
+                source: cities
+            });
+        });
+    </script>
+}
+
 <h2>Edit</h2>
 
 @using (Html.BeginForm())

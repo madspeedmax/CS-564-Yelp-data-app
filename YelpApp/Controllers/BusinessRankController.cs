@@ -19,6 +19,9 @@ namespace YelpApp.Controllers
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             ViewData["CatList"] = serializer.Serialize(CatList);
 
+            var CityList = db.Businesses.Select(c => c.Business_City).Distinct().ToArray();
+            ViewData["CityList"] = serializer.Serialize(CityList);
+
             if (!string.IsNullOrEmpty(model.SearchButton))
             {
                 model.RankResults = new List<BusinessRankResult>();
@@ -43,12 +46,23 @@ namespace YelpApp.Controllers
                 cmd.Parameters.Add("@score", MySqlDbType.Double);
                 cmd.Parameters["@score"].Direction = ParameterDirection.Output;
 
+                cmd.Parameters.Add("@rCount", MySqlDbType.Double);
+                cmd.Parameters["@rCount"].Direction = ParameterDirection.Output;
+
                 cmd.ExecuteNonQuery();
 
                 double calc1 = 0;
+                int rCount1 = 0;
+
                 if (cmd.Parameters["@score"].Value != System.DBNull.Value)
                 {
                     calc1 = Math.Round((double)cmd.Parameters["@score"].Value, 2);
+
+                }
+
+                if (cmd.Parameters["@rCount"].Value != System.DBNull.Value)
+                {
+                    rCount1 = (int)(double)cmd.Parameters["@rCount"].Value;
 
                 }
 
@@ -57,6 +71,7 @@ namespace YelpApp.Controllers
                     Category = model.Category,
                     City = model.City,
                     State = model.State,
+                    ReviewCount = rCount1,
                     Score = calc1
             });
                 #endregion
@@ -79,12 +94,23 @@ namespace YelpApp.Controllers
                 cmd2.Parameters.Add("@score", MySqlDbType.Double);
                 cmd2.Parameters["@score"].Direction = ParameterDirection.Output;
 
+                cmd2.Parameters.Add("@rCount", MySqlDbType.Double);
+                cmd2.Parameters["@rCount"].Direction = ParameterDirection.Output;
+
                 cmd2.ExecuteNonQuery();
 
                 double calc2 = 0;
+                int rCount2 = 0;
+
                 if (cmd2.Parameters["@score"].Value != System.DBNull.Value)
                 {
                     calc2 = Math.Round((double)cmd2.Parameters["@score"].Value, 2);
+
+                }
+
+                if (cmd2.Parameters["@rCount"].Value != System.DBNull.Value)
+                {
+                    rCount2 = (int)(double)cmd2.Parameters["@rCount"].Value;
 
                 }
 
@@ -93,6 +119,7 @@ namespace YelpApp.Controllers
                     Category = model.Category,
                     City = model.City2,
                     State = model.State2,
+                    ReviewCount = rCount2,
                     Score = calc2
                 });
                 #endregion
@@ -115,12 +142,23 @@ namespace YelpApp.Controllers
                 cmd3.Parameters.Add("@score", MySqlDbType.Double);
                 cmd3.Parameters["@score"].Direction = ParameterDirection.Output;
 
+                cmd3.Parameters.Add("@rCount", MySqlDbType.Double);
+                cmd3.Parameters["@rCount"].Direction = ParameterDirection.Output;
+
                 cmd3.ExecuteNonQuery();
 
                 double calc3 = 0;
+                int rCount3 = 0;
+
                 if (cmd3.Parameters["@score"].Value != System.DBNull.Value)
                 {
                     calc3 = Math.Round((double)cmd3.Parameters["@score"].Value, 2);
+
+                }
+
+                if (cmd3.Parameters["@rCount"].Value != System.DBNull.Value)
+                {
+                    rCount3 = (int)(double)cmd3.Parameters["@rCount"].Value;
 
                 }
 
@@ -129,6 +167,7 @@ namespace YelpApp.Controllers
                     Category = model.Category,
                     City = model.City3,
                     State = model.State3,
+                    ReviewCount = rCount3,
                     Score = calc3
                 });
                 #endregion
