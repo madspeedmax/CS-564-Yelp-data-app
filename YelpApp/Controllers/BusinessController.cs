@@ -64,7 +64,10 @@ namespace YelpApp.Controllers
             ViewData["BusinessID"] = businessID;
             
             var model = db.Reviews.Where(e => e.Business_ID == businessID).ToList();
-            ViewData["AvgStars"] = Math.Round(model.Average(c => c.Stars), 2);
+            if (model != null && model.Any())
+            {
+                ViewData["AvgStars"] = Math.Round(model.Average(c => c.Stars), 2);
+            }
 
             return PartialView(model);
         }
