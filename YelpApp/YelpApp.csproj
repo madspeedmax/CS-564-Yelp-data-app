@@ -171,6 +171,7 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BusinessRankController.cs" />
     <Compile Include="Controllers\BusinessSearchController.cs" />
+    <Compile Include="Controllers\Business_CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="DAL\MyDbContext.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\BusinessRank\Index.cshtml" />
     <Content Include="Views\Business\Edit.cshtml" />
+    <Content Include="Views\Business_Category\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,6 +15,7 @@ namespace YelpApp.Models
         public string Business_ID { get; set; }
 
         [Key, Column(Order = 1)]
+        [Required]
         public string Category { get; set; }
     }
 }

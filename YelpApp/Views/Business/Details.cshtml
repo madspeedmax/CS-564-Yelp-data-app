@@ -59,6 +59,7 @@
                 {
                     <li><span class="label label-info">@cat.Category</span></li>
                 }
+                <li>@Html.ActionLink("+ add", "Create", "Business_Category", new { businessID = Model.Business_ID }, new { @class = "label  label-success" })</li>
             </ul>
         </dd>
 
