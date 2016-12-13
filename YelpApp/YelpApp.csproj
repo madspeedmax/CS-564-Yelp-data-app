@@ -187,6 +187,7 @@
     <Compile Include="Models\BusinessRank.cs" />
     <Compile Include="Models\Business_Checkin.cs" />
     <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="static_content\States.cs" />
     <Compile Include="Util\BooleanExtensions.cs" />

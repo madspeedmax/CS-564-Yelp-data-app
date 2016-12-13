@@ -37,6 +37,13 @@ namespace YelpApp.Controllers
 
             if (ModelState.IsValid)
             {
+                if (db.Users.Where(u => u.User_ID == Review.User_ID).FirstOrDefault() == null)
+                {
+                    var user = new User();
+                    user.User_ID = Review.User_ID;
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
                 db.Reviews.Add(Review);
                 db.SaveChanges();
                 return RedirectToAction("Details", "Business", new { businessID = Review.Business_ID });

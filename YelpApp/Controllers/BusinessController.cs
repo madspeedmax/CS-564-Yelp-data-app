@@ -32,7 +32,7 @@ namespace YelpApp.Controllers
             {
                 db.Businesses.Add(Business);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home", "");
             }
 
             return View();
