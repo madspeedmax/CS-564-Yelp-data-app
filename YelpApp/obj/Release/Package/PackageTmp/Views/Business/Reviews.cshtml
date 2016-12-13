@@ -4,28 +4,33 @@
     ViewBag.Title = "Reviews";
 }
 
-<h2>Reviews (Average Stars: @if ((double) ViewData["AvgStars"] > 0)
-{
-    if ((double) ViewData["AvgStars"] < 3)
+<h2>
+    Reviews (Average Stars: @if (ViewData["AvgStars"] != null)
     {
-        <span class="label label-danger">@ViewData["AvgStars"]</span>
-    }
+        if ((double)ViewData["AvgStars"] > 0)
+        {
+            if ((double)ViewData["AvgStars"] < 3)
+            {
+                <span class="label label-danger">@ViewData["AvgStars"]</span>
+            }
 
-    else if ((double) ViewData["AvgStars"] < 4)
-    {
-        <span class="label label-warning">@ViewData["AvgStars"]</span>
-    }
+            else if ((double)ViewData["AvgStars"] < 4)
+            {
+                <span class="label label-warning">@ViewData["AvgStars"]</span>
+            }
 
-    else
-    {
-        <span class="label label-success">@ViewData["AvgStars"]</span>
-    }
+            else
+            {
+                <span class="label label-success">@ViewData["AvgStars"]</span>
+            }
 
-}
-else
-{
-    <span class="label label-default">No data</span>
-})</h2>
+        }
+        else
+        {
+            <span class="label label-default">No data</span>
+        }
+    })
+</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create", "Review", new { businessID = ViewData["BusinessID"] }, null)
@@ -46,21 +51,22 @@ else
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.User_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stars)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", "Review", new { id=item.Review_ID }, new { @class = "btn btn-primary btn-sm" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Review", new { id = item.Review_ID }, new { @class = "btn btn-primary btn-sm" })
+            </td>
+        </tr>
+    }
 
 </table>
